@@ -1,0 +1,8 @@
+# Request
+geometry_msgs/Point target   # Target point for needle insertion
+string planner_type ""      # Optional: Specific planner to use
+---
+# Response
+geometry_msgs/PolygonStamped plan   # Planned path as a series of points
+bool success                        # Whether planning was successful
+string message                      # Additional information or error message
