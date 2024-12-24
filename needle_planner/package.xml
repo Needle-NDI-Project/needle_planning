@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>needle_planner</name>
+    <version>0.2.0</version>
+    <description>ROS2 package for needle path planning using various approaches including machine learning, geometric planning, and hybrid methods.</description>
+    <maintainer email="sgoyal18@jhu.edu">Shashank Goyal</maintainer>
+    <license>Apache-2.0</license>
+
+    <!-- Build Dependencies -->
+    <buildtool_depend>ament_python</buildtool_depend>
+
+    <!-- ROS2 Dependencies -->
+    <depend>rclpy</depend>
+    <depend>geometry_msgs</depend>
+    <depend>std_msgs</depend>
+    <depend>needle_planner_msgs</depend>
+    <depend>tf2_ros</depend>
+    <depend>tf2_geometry_msgs</depend>
+
+    <!-- Python Dependencies -->
+    <exec_depend>python3-numpy</exec_depend>
+    <exec_depend>python3-scipy</exec_depend>
+    <exec_depend>python3-sklearn</exec_depend>
+    <exec_depend>python3-torch</exec_depend>
+    <exec_depend>python3-yaml</exec_depend>
+    <exec_depend>python3-PyNiteFEA</exec_depend>
+
+    <!-- Documentation Dependencies -->
+    <doc_depend>doxygen</doc_depend>
+    <doc_depend>python3-sphinx</doc_depend>
+    <doc_depend>python3-sphinx-rtd-theme</doc_depend>
+
+    <!-- Launch Dependencies -->
+    <exec_depend>ros2launch</exec_depend>
+
+    <!-- Other Dependencies -->
+    <depend>launch</depend>
+    <depend>launch_ros</depend>
+    <depend>xacro</depend>
+
+    <export>
+        <build_type>ament_python</build_type>
+        <architecture_independent />
+        <ros_industrial>
+            <support_level value="community" />
+        </ros_industrial>
+    </export>
+</package>
