@@ -1,0 +1,20 @@
+/needle_planning_node:
+    ros__parameters:
+        geometric:
+            planning:
+                max_curvature: 0.01 # Maximum curvature in 1/mm
+                num_points: 50 # Number of points to generate along the path
+                min_step: 0.5 # Minimum step size in mm
+                max_angle: 45.0 # Maximum bending angle in degrees
+            workspace:
+                limits:
+                    x: [-50.0, 50.0] # mm
+                    y: [-50.0, 50.0] # mm
+                    z: [0.0, 150.0] # mm
+            smoothing:
+                enabled: true
+                window_size: 3 # Points for moving average
+            validation:
+                max_depth: 120.0
+                max_lateral: 50.0
+                safety_margin: 2.0 # mm

@@ -1,0 +1,24 @@
+/needle_planning_node:
+    ros__parameters:
+        linear_regression:
+            model:
+                path: 'models/linear_regression_model.pkl'
+                polynomial_degree: 2
+
+            pca:
+                n_components: 2
+                whiten: false
+
+            path_generation:
+                num_points: 50
+                spacing: 0.5 # mm
+                interpolation: 'linear'
+
+            validation:
+                max_depth: 120.0 # mm
+                max_lateral: 50.0 # mm
+                safety_margin: 2.0 # mm
+
+            preprocessing:
+                scale_input: true
+                normalization_range: [-1.0, 1.0]

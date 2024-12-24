@@ -1,0 +1,88 @@
+/needle_planning_node:
+    ros__parameters:
+        default_planner: 'linear_regression'
+
+        # Linear Regression Planner Parameters
+        linear_regression:
+            model:
+                path: 'models/linear_regression_model.pkl'
+                polynomial_degree: 2
+                whiten: false
+                n_components: 2
+            path_generation:
+                num_points: 50
+                spacing: 0.5 # mm
+            validation:
+                max_depth: 120.0
+                max_lateral: 50.0
+
+        # Neural Network Planner Parameters
+        neural_network:
+            model:
+                architecture:
+                    input_dim: 3
+                    hidden_layers: [32, 64, 128]
+                    output_points: 20
+                    activation: 'relu'
+                inference:
+                    batch_size: 1
+                    device: 'cpu'
+            path_processing:
+                min_points: 20
+                max_points: 50
+                interpolation: 'linear'
+                smoothing_window: 3
+            validation:
+                max_depth: 120.0
+                max_lateral: 50.0
+                confidence_threshold: 0.8
+
+        # Geometric Planner Parameters
+        geometric:
+            planning:
+                max_curvature: 0.01 # 1/mm
+                num_points: 50
+                min_step: 0.5 # mm
+                max_angle: 45.0 # degrees
+            workspace:
+                limits:
+                    x: [-50.0, 50.0] # mm
+                    y: [-50.0, 50.0] # mm
+                    z: [0.0, 150.0] # mm
+            smoothing:
+                enabled: true
+                window_size: 3
+
+        # Hybrid Planner Parameters
+        hybrid:
+            geometric_component:
+                max_curvature: 0.01
+                num_points: 50
+            ml_correction:
+                model_path: 'models/correction_model.pkl'
+                alpha: 1.0
+                correction_scale: 0.1
+                max_correction: 2.0
+            fe_refinement:
+                enabled: true
+                segment_fraction: 0.25
+                stiffness_values: [0.05, 0.06, 0.07]
+                position_values: [50.0, 75.0, 100.0]
+                guide_positions: [0.0, 0.0, 0.0]
+            validation:
+                max_depth: 120.0
+                max_lateral: 50.0
+                safety_margin: 2.0
+
+        # Sampling Planner Parameters
+        sampling:
+            planning:
+                max_iterations: 1000
+                step_size: 2.0 # mm
+                goal_bias: 0.2
+                max_curvature: 0.01 # 1/mm
+                goal_threshold: 2.0 # mm
+            validation:
+                max_depth: 120.0
+                max_lateral: 50.0
+                min_step: 0.5 # mm

@@ -1,0 +1,26 @@
+/needle_planning_node:
+    ros__parameters:
+        hybrid:
+            geometric_component:
+                max_curvature: 0.01 # 1/mm
+                num_points: 50
+                min_step: 0.5 # mm
+
+            ml_correction:
+                model_path: 'models/correction_model.pkl'
+                alpha: 1.0 # Ridge regression regularization
+                correction_scale: 0.1 # Scale factor for ML corrections
+                max_correction: 2.0 # Maximum correction in mm
+
+            fe_refinement:
+                enabled: true
+                segment_fraction: 0.25 # Fraction of path to refine
+                stiffness_values: [0.05, 0.06, 0.07] # Tissue stiffness
+                position_values: [50.0, 75.0, 100.0] # Position values
+                guide_positions: [0.0, 0.0, 0.0] # Guide positions
+
+            validation:
+                max_depth: 120.0 # mm
+                max_lateral: 50.0 # mm
+                safety_margin: 2.0 # mm
+                min_step: 0.5 # mm

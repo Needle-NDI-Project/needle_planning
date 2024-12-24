@@ -1,0 +1,29 @@
+/needle_planning_node:
+    ros__parameters:
+        neural_network:
+            model:
+                architecture:
+                    input_dim: 3
+                    hidden_layers: [32, 64, 128]
+                    output_points: 20 # Number of waypoints to generate
+                    activation: 'relu'
+                    dropout_rate: 0.1
+
+                inference:
+                    batch_size: 1
+                    device: 'cpu' # or 'cuda' if available
+                    checkpoint_path: 'models/needle_nn_model.pt'
+
+            path_processing:
+                min_points: 20
+                max_points: 50
+                interpolation: 'linear'
+                smoothing_window: 3
+                resample_spacing: 0.5 # mm
+
+            validation:
+                max_depth: 120.0 # mm
+                max_lateral: 50.0 # mm
+                confidence_threshold: 0.8
+                min_point_spacing: 0.5 # mm
+                max_curvature: 0.01 # 1/mm
