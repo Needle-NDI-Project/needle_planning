@@ -1,6 +1,5 @@
 # Needle Planning
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-green)](https://docs.ros.org/en/humble/)
 
 ## Table of Contents
@@ -78,7 +77,7 @@ needle_planning/
 2. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-org/needle_planning.git
+    git clone https://github.com/Needle-NDI-Project/needle_planning.git
     ```
 
 3. Install Python dependencies:
